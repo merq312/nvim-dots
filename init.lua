@@ -202,8 +202,11 @@ catppuccino.setup({
       enabled = true,
       show_root = true,
     },
+    indent_blankline = {
+      enabled = false,
+      colored_indent_levels = false,
+    },
     which_key = false,
-    indent_blankline = true,
     dashboard = false,
     neogit = false,
     vim_sneak = false,
