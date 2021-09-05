@@ -24,7 +24,7 @@ opt.linebreak = true
 -- cmd 'colorscheme catppuccino'
 
 opt.completeopt = 'menuone,noselect'
-opt.guifont = 'BlexMono NF' -- for Neovide
+opt.guifont = 'FiraMono NF' -- for Neovide
 
 -- Autoformat on save
 vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
@@ -75,8 +75,8 @@ map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
 
 -- Telescope
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
+map('n', '<leader>rg', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
 
 -- nvim_bufferline
