@@ -111,14 +111,6 @@ return require('packer').startup(function()
     end
   }
 
-  use {
-    'kristijanhusak/orgmode.nvim',
-    branch = 'tree-sitter',
-    config = function()
-      require('orgmode').setup{}
-    end
-  }
-
   use '9mm/vim-closer'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'b3nj5m1n/kommentary'
