@@ -16,7 +16,7 @@ opt.smarttab = true
 
 opt.number = true
 opt.showcmd = true
--- opt.cursorline = true
+opt.cursorline = true
 opt.wildmenu = true
 opt.breakindent = true
 opt.linebreak = true
@@ -24,27 +24,26 @@ opt.linebreak = true
 -- cmd 'colorscheme catppuccino'
 
 opt.completeopt = 'menuone,noselect'
-opt.guifont = 'BlexMono NF'
+opt.guifont = 'BlexMono NF' -- for Neovide
 
+-- Autoformat on save
 vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 
 cmd [[packadd packer.nvim]]
-cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
+-- Auto compile when there are changes in plugins.lua
+cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
+-- KEYMAPPINGS
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
-map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
-
+-- Save buffer
 map('n', '<Space><Space>', '<cmd>w<CR>')
 
+-- Disable some defaults
 map('n', '<S-up>', 'k')
 map('n', '<S-down>', 'j')
 map('v', '<S-up>', 'k')
@@ -52,25 +51,41 @@ map('v', '<S-down>', 'j')
 map('i', '<S-up>', 'k')
 map('i', '<S-down>', 'j')
 
+-- Move faster
 map('n', 'J', '5j')
 map('n', 'K', '5k')
 
+-- Scroll page
 map('n', '<C-k>', '<C-y>')
 map('n', '<C-j>', '<C-e>')
 
+-- Disable macros
 map('n', 'q', 'b')
 map('n', 'Q', 'B')
 
+-- Better indent
 map('v', '<', '<gv')
 map('v', '>', '>gv')
 
+-- No search highlight
 map('n', '<Esc>', '<cmd>noh<CR>')
 
+-- Nvimtree
+map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
+
+-- Telescope
+map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
+map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+
+-- nvim_bufferline
 map('n', '<A-,>', '<cmd>BufferLineCyclePrev<CR>')
 map('n', '<A-.>', '<cmd>BufferLineCycleNext<CR>')
 map('n', '<A-<>', '<cmd>BufferLineMovePrev<CR>')
 map('n', '<A->>', '<cmd>BufferLineMoveNext<CR>')
 
+-- compe (confirm is broken?)
 map('i', '<C-Space>', 'compe#complete()', {expr = true, silent = true})
 -- map('i', '<CR>', "compe#confirm('<CR>')", {expr = true, silent = true})
 map('i', '<C-e>', "compe#close('<C-e>')", {expr = true, silent = true})
@@ -110,6 +125,7 @@ map('n', ']g', "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<
 map('n', '<A-d>', "<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>", {silent = true})
 map('t', '<A-d>', "<C-\\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>", {silent = true})
 
+-- PLUGIN CONFIGURATION
 require'plugins'
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.rust_analyzer.setup{}

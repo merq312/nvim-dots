@@ -125,7 +125,7 @@ return require('packer').startup(function()
   use 'p00f/nvim-ts-rainbow'
   use 'onsails/lspkind-nvim'
 
-  -- colorschemes
+  -- COLORSCHEMES
   use 'navarasu/onedark.nvim'
   use 'tomasiser/vim-code-dark'
   use 'Pocco81/Catppuccino.nvim'
