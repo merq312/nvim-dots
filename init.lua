@@ -51,9 +51,9 @@ map('v', '<S-down>', 'j')
 map('i', '<S-up>', 'k')
 map('i', '<S-down>', 'j')
 
--- Move faster
-map('n', 'J', '5j')
-map('n', 'K', '5k')
+-- Scroll paragraph
+map('n', 'J', '}')
+map('n', 'K', '{')
 
 -- Scroll page
 map('n', '<C-k>', '<C-y>')
