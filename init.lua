@@ -16,7 +16,7 @@ opt.smarttab = true
 
 opt.number = true
 opt.showcmd = true
-opt.cursorline = true
+opt.cursorline = false
 opt.wildmenu = true
 opt.breakindent = true
 opt.linebreak = true
@@ -167,7 +167,7 @@ require('lspkind').init({})
 local catppuccino = require("catppuccino")
 
 catppuccino.setup({
-  colorscheme = "dark_catppuccino",
+  colorscheme = "soft_manilo",
   transparency = false,
   styles = {
     comments = "NONE",
