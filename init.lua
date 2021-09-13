@@ -7,6 +7,7 @@ opt.termguicolors = true
 cmd 'set clipboard=unnamedplus'
 cmd 'set mouse=a'
 cmd 'set encoding=utf-8'
+cmd 'set shell=pwsh.exe'
 
 opt.tabstop = 2
 opt.shiftwidth = 2
