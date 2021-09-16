@@ -7,7 +7,8 @@ opt.termguicolors = true
 cmd 'set clipboard=unnamedplus'
 cmd 'set mouse=a'
 cmd 'set encoding=utf-8'
-cmd 'set shell=pwsh.exe'
+-- cmd 'set shell=pwsh.exe'
+cmd 'set shortmess+=c'
 
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -21,10 +22,9 @@ opt.cursorline = false
 opt.wildmenu = true
 opt.breakindent = true
 opt.linebreak = true
+opt.hidden = true
 
--- cmd 'colorscheme catppuccino'
-
-opt.completeopt = 'menuone,noselect'
+opt.completeopt = 'menuone,noinsert,noselect'
 opt.guifont = 'FiraMono NF' -- for Neovide
 
 -- Autoformat on save
@@ -71,8 +71,15 @@ map('v', '>', '>gv')
 -- No search highlight
 map('n', '<Esc>', '<cmd>noh<CR>')
 
+-- exit terminal mode
+cmd 'tnoremap <Esc> <C-\\><C-n>'
+
 -- Nvimtree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
+
+-- completion
+cmd 'inoremap <expr> <Tab>   pumvisible() ? "<C-n>" : "<Tab>"'
+cmd 'inoremap <expr> <S-Tab> pumvisible() ? "<C-p>" : "<S-Tab>"'
 
 -- Telescope
 map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
@@ -85,13 +92,6 @@ map('n', '<A-,>', '<cmd>BufferLineCyclePrev<CR>')
 map('n', '<A-.>', '<cmd>BufferLineCycleNext<CR>')
 map('n', '<A-<>', '<cmd>BufferLineMovePrev<CR>')
 map('n', '<A->>', '<cmd>BufferLineMoveNext<CR>')
-
--- compe (confirm is broken?)
-map('i', '<C-Space>', 'compe#complete()', {expr = true, silent = true})
--- map('i', '<CR>', "compe#confirm('<CR>')", {expr = true, silent = true})
-map('i', '<C-e>', "compe#close('<C-e>')", {expr = true, silent = true})
-map('i', '<C-f>', "compe#scroll({ 'delta': +4 })", {expr = true, silent = true})
-map('i', '<C-d>', "compe#scroll({ 'delta': -4 })", {expr = true, silent = true})
 
 -- finder
 map('n', 'gh', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", {silent = true})
@@ -128,9 +128,9 @@ map('t', '<A-d>', "<C-\\><C-n>:lua require('lspsaga.floaterm').close_float_termi
 
 -- PLUGIN CONFIGURATION
 require'plugins'
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.ccls.setup{}
+require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.rust_analyzer.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.ccls.setup{on_attach=require'completion'.on_attach}
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -164,6 +164,40 @@ require'nvim-treesitter.configs'.setup {
 }
 
 require('lspkind').init({})
+
+require('nvim-autopairs').setup({})
+
+local remap = vim.api.nvim_set_keymap
+local npairs = require('nvim-autopairs')
+
+-- skip it, if you use another global object
+_G.MUtils= {}
+
+MUtils.completion_confirm=function()
+  if vim.fn.pumvisible() ~= 0  then
+      return npairs.esc("<cr>")
+  else
+    return npairs.autopairs_cr()
+  end
+end
+
+remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+
+require("toggleterm").setup({
+  -- size can be a number or function which is passed the current terminal
+  size = 20,
+  open_mapping = [[<c-p>]],
+  hide_numbers = true, -- hide the number column in toggleterm buffers
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = 1, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  start_in_insert = true,
+  insert_mappings = true, -- whether or not the open mapping applies in insert mode
+  persist_size = true,
+  direction = 'horizontal',
+  close_on_exit = true, -- close the terminal window when the process exits
+  shell = 'pwsh.exe', -- change the default shell
+})
 
 local catppuccino = require("catppuccino")
 
@@ -219,4 +253,7 @@ catppuccino.setup({
   }
 })
 
-catppuccino.load()
+-- catppuccino.load()
+
+opt.background = "dark"
+cmd 'colorscheme gruvbox'

@@ -18,10 +18,12 @@ return require('packer').startup(function()
     'glepnir/galaxyline.nvim',
       branch = 'main',
       -- your statusline
-      config = function() require'eviline' end,
+      config = function() require'statusline' end,
       -- some optional icons
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+
+  use 'nvim-lua/completion-nvim'
 
   -- Use dependency and run lua function after load
   use {
@@ -42,46 +44,6 @@ return require('packer').startup(function()
   use {
     'neovim/nvim-lspconfig',
     config = function() require'bufferline'.setup{} end
-  }
-
-  use {
-    'hrsh7th/nvim-compe',
-    config = function()
-      require'compe'.setup({
-        enabled = true;
-        autocomplete = true;
-        debug = false;
-        min_length = 1;
-        preselect = 'enable';
-        throttle_time = 80;
-        source_timeout = 200;
-        resolve_timeout = 800;
-        incomplete_delay = 400;
-        max_abbr_width = 100;
-        max_kind_width = 100;
-        max_menu_width = 100;
-        documentation = {
-          border = "rounded",
-          winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-          max_width = 120,
-          min_width = 60,
-          max_height = math.floor(vim.o.lines * 0.3),
-          min_height = 1,
-        };
-
-        source = {
-          path = true;
-          buffer = true;
-          calc = true;
-          nvim_lsp = true;
-          nvim_lua = true;
-          vsnip = true;
-          ultisnips = true;
-          luasnip = true;
-          orgmode = true;
-        };
-      })
-    end
   }
 
   use {
@@ -111,7 +73,8 @@ return require('packer').startup(function()
     end
   }
 
-  use '9mm/vim-closer'
+  use 'akinsho/toggleterm.nvim'
+  use 'windwp/nvim-autopairs'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'b3nj5m1n/kommentary'
   use 'p00f/nvim-ts-rainbow'
@@ -121,5 +84,6 @@ return require('packer').startup(function()
   use 'navarasu/onedark.nvim'
   use 'tomasiser/vim-code-dark'
   use 'Pocco81/Catppuccino.nvim'
+  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
 end)
