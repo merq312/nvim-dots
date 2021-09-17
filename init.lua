@@ -165,6 +165,8 @@ require'nvim-treesitter.configs'.setup {
 
 require('lspkind').init({})
 
+require('feline').setup()
+
 require('nvim-autopairs').setup({})
 
 local remap = vim.api.nvim_set_keymap
@@ -202,7 +204,7 @@ require("toggleterm").setup({
 local catppuccino = require("catppuccino")
 
 catppuccino.setup({
-  colorscheme = "soft_manilo",
+  colorscheme = "dark_catppuccino",
   transparency = false,
   styles = {
     comments = "NONE",
@@ -253,7 +255,7 @@ catppuccino.setup({
   }
 })
 
--- catppuccino.load()
+catppuccino.load()
 
-opt.background = "dark"
-cmd 'colorscheme gruvbox'
+-- opt.background = "dark"
+-- cmd 'colorscheme gruvbox'

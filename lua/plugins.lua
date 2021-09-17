@@ -14,14 +14,7 @@ return require('packer').startup(function()
 
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-  use {
-    'glepnir/galaxyline.nvim',
-      branch = 'main',
-      -- your statusline
-      config = function() require'statusline' end,
-      -- some optional icons
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+  use {'famiu/feline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   use 'nvim-lua/completion-nvim'
 
@@ -43,34 +36,16 @@ return require('packer').startup(function()
  
   use {
     'neovim/nvim-lspconfig',
-    config = function() require'bufferline'.setup{} end
+    config = function() require'bufferline'.setup{
+      options = {
+        separator_style = "slant",
+      }
+    } end
   }
 
   use {
     'glepnir/lspsaga.nvim',
     config = function() require'lspsaga'.init_lsp_saga() end
-  }
-
-  use {
-    'Pocco81/TrueZen.nvim',
-    config = function()
-      require('true-zen').setup {
-        misc = {
-          ui_elements_commands = true,
-        }
-      }
-    end
-  }
-
-  use {
-    'folke/twilight.nvim',
-    config = function()
-      require('twilight').setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
   }
 
   use 'akinsho/toggleterm.nvim'
@@ -85,5 +60,6 @@ return require('packer').startup(function()
   use 'tomasiser/vim-code-dark'
   use 'Pocco81/Catppuccino.nvim'
   use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use "projekt0n/github-nvim-theme"
 
 end)
