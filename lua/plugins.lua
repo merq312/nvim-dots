@@ -1,15 +1,6 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
--- vim.cmd [[packadd packer.nvim]]
--- Only if your version of Neovim doesn't have https://github.com/neovim/neovim/pull/12632 merged
--- vim._update_package_paths()
-
 return require('packer').startup(function()
-  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Post-install/update hook with neovim command
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
@@ -18,7 +9,6 @@ return require('packer').startup(function()
 
   use 'nvim-lua/completion-nvim'
 
-  -- Use dependency and run lua function after load
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
@@ -33,7 +23,7 @@ return require('packer').startup(function()
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons'
   }
- 
+
   use {
     'neovim/nvim-lspconfig',
     config = function() require'bufferline'.setup{
@@ -48,7 +38,24 @@ return require('packer').startup(function()
     config = function() require'lspsaga'.init_lsp_saga() end
   }
 
-  use 'akinsho/toggleterm.nvim'
+  use {
+    'akinsho/toggleterm.nvim',
+    config = function() require'toggleterm'.setup{
+      size = 20,
+      open_mapping = [[<c-p>]],
+      hide_numbers = true,
+      shade_filetypes = {},
+      shade_terminals = true,
+      shading_factor = 1,
+      start_in_insert = true,
+      insert_mappings = true,
+      persist_size = true,
+      direction = 'horizontal',
+      close_on_exit = true,
+      shell = 'pwsh.exe',
+    } end
+  }
+
   use 'windwp/nvim-autopairs'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'b3nj5m1n/kommentary'
@@ -58,8 +65,63 @@ return require('packer').startup(function()
   -- COLORSCHEMES
   use 'navarasu/onedark.nvim'
   use 'tomasiser/vim-code-dark'
-  use 'Pocco81/Catppuccino.nvim'
-  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
-  use "projekt0n/github-nvim-theme"
+
+  use {
+    'Pocco81/Catppuccino.nvim',
+    config = function() require'catppuccino'.setup{
+      colorscheme = "dark_catppuccino",
+      transparency = false,
+      styles = {
+        comments = "NONE",
+        functions = "underline",
+        keywords = "italic",
+        strings = "NONE",
+        variables = "NONE",
+      },
+      integrations = {
+        treesitter = true,
+        native_lsp = {
+          enabled = true,
+          virtual_text = {
+            errors = "italic",
+            hints = "italic",
+            warnings = "italic",
+            information = "italic",
+          },
+          underlines = {
+            errors = "underline",
+            hints = "underline",
+            warnings = "underline",
+            information = "underline",
+          }
+        },
+        lsp_trouble = false,
+        lsp_saga = true,
+        gitgutter = false,
+        gitsigns = true,
+        telescope = true,
+        nvimtree = {
+          enabled = true,
+          show_root = true,
+        },
+        indent_blankline = {
+          enabled = false,
+          colored_indent_levels = false,
+        },
+        which_key = false,
+        dashboard = false,
+        neogit = false,
+        vim_sneak = false,
+        fern = false,
+        barbar = false,
+        bufferline = true,
+        markdown = false,
+        ts_rainbow = true,
+      }
+    } end
+  }
+
+  use {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
+  use 'merq312/github-nvim-theme'
 
 end)
