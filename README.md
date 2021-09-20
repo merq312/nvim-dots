@@ -1,0 +1,1 @@
+Nvim dotfiles. Nothing special.
