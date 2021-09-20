@@ -11,6 +11,10 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.smarttab = true
+vim.opt.foldmethod = 'indent'
+vim.opt.foldnestmax = 10
+vim.opt.foldenable = false
+vim.opt.foldlevel = 2
 
 vim.opt.number = true
 vim.opt.showcmd = true
