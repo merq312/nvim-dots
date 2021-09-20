@@ -1,13 +1,16 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   use {'famiu/feline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-  use 'nvim-lua/completion-nvim'
+  use {'ms-jpq/coq_nvim', branch = 'coq'}
+  use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
+
+  use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
