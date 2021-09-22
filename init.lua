@@ -11,10 +11,13 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.smarttab = true
+
 vim.opt.foldmethod = 'indent'
-vim.opt.foldnestmax = 10
 vim.opt.foldenable = false
 vim.opt.foldlevel = 2
+vim.opt.foldnestmax = 3
+vim.opt.foldminlines = 1
+vim.opt.fillchars='fold: '
 
 vim.opt.number = true
 vim.opt.showcmd = true
@@ -83,7 +86,22 @@ require'nvim-treesitter.configs'.setup {
 
 require('lspkind').init({})
 
-require('feline').setup()
+require('feline').setup({
+  preset = 'noicon',
+  colors = {
+    fg = '#EBDBB2',
+    bg = '#3B3735',
+    black = '#1D2021',
+    white = '#EBDBB2',
+    cyan = '#8EC07C',
+    skyblue = '#83A598',
+    oceanblue = '#458588',
+    red = '#FB4934',
+    orange = '#FE8019',
+    yellow = '#FABD2F',
+    green = '#B8BB26',
+  }
+})
 
 require('nvim-autopairs').setup({})
 
@@ -126,4 +144,5 @@ MUtils.BS = function()
 end
 remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
 
-vim.cmd 'colorscheme github_dark_default'
+vim.opt.background = 'dark'
+vim.cmd 'colorscheme gruvbox'

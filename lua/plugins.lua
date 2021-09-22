@@ -30,9 +30,9 @@ return require('packer').startup(function()
   use {
     'neovim/nvim-lspconfig',
     config = function() require'bufferline'.setup{
-      options = {
-        separator_style = "slant",
-      }
+      -- options = {
+      --   separator_style = "slant",
+      -- }
     } end
   }
 
