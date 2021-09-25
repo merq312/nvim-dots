@@ -30,6 +30,14 @@ vim.opt.hidden = true
 vim.opt.completeopt = 'menuone,noinsert,noselect'
 vim.opt.guifont = 'FiraMono NF'
 
+vim.g.nvim_tree_side = 'right'
+vim.g.nvim_tree_auto_close = 1
+vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_follow_update_path = 1
+vim.g.nvim_tree_highlight_opened_files = 1
+
+vim.g.coq_settings = { auto_start = true, keymap = { recommended = false } }
+
 -- Autoformat on save
 vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 
@@ -39,10 +47,6 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
 -- KEYBINDS
 require'keybinds'
-
-vim.g.coq_settings = {
-  auto_start = true,
-}
 
 -- PLUGINS
 require'plugins'
@@ -117,8 +121,6 @@ local npairs = require('nvim-autopairs')
 
 npairs.setup({ map_bs = false })
 
-vim.g.coq_settings = { keymap = { recommended = false } }
-
 -- these mappings are coq recommended mappings unrelated to nvim-autopairs
 remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], { expr = true, noremap = true })
 remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], { expr = true, noremap = true })
@@ -153,4 +155,5 @@ remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
 
 vim.opt.background = 'dark'
 vim.g.vscode_style = 'dark'
+
 vim.cmd 'colorscheme vscode'
