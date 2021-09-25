@@ -7,6 +7,9 @@ end
 -- Save buffer
 map('n', '<Space><Space>', '<cmd>w<CR>')
 
+-- Close buffer (includes fix for nvim-scrollview)
+map('n', '<C-d>', '<C-w>o<CR><cmd>bd<CR>')
+
 -- Disable some defaults
 map('n', '<S-up>', 'k')
 map('n', '<S-down>', 'j')
