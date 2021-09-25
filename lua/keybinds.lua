@@ -56,6 +56,16 @@ map('n', '<A-.>', '<cmd>BufferLineCycleNext<CR>')
 map('n', '<A-<>', '<cmd>BufferLineMovePrev<CR>')
 map('n', '<A->>', '<cmd>BufferLineMoveNext<CR>')
 
+-- go-to definition
+map('n', 'gd', "<cmd>lua vim.lsp.buf.definition()<CR>", {silent = true})
+map('n', 'gD', "<cmd>lua vim.lsp.buf.declaration()<CR>", {silent = true})
+
+-- go-to implementation
+map('n', 'gi', "<cmd>lua vim.lsp.buf.implementation()<CR>", {silent = true})
+
+-- hover
+map('n', 'L', "<cmd>lua vim.lsp.buf.hover()<CR>", {silent = true})
+
 -- finder
 map('n', 'gh', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", {silent = true})
 
@@ -64,7 +74,7 @@ map('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>
 map('v', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", {silent = true})
 
 -- hover doc
-map('n', 'L', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", {silent = true})
+-- map('n', 'L', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", {silent = true})
 map('n', '<C-f>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", {silent = true})
 map('n', '<C-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", {silent = true})
 
@@ -75,7 +85,7 @@ map('n', 'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
 map('n', 'gr', "<cmd>lua require('lspsaga.rename').rename()<CR>", {silent = true})
 
 -- preview definition
-map('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", {silent = true})
+-- map('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", {silent = true})
 
 -- show diagnostics
 map('n', '<leader>cd', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", {silent = true})

@@ -59,6 +59,11 @@ return require('packer').startup(function()
     } end
   }
 
+  use {
+    'simrat39/rust-tools.nvim',
+	  requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
+
   use 'windwp/nvim-autopairs'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'b3nj5m1n/kommentary'

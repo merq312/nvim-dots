@@ -50,12 +50,15 @@ require'keybinds'
 
 -- PLUGINS
 require'plugins'
-local lsp = require'lspconfig'
+local nvim_lsp = require'lspconfig'
+local servers = { 'tsserver', 'rust_analyzer', 'ccls' }
 local coq = require('coq')
 
-lsp.tsserver.setup{coq.lsp_ensure_capabilities()}
-lsp.rust_analyzer.setup{coq.lsp_ensure_capabilities()}
-lsp.ccls.setup{coq.lsp_ensure_capabilities()}
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {coq.lsp_ensure_capabilities()}
+end
+
+require('rust-tools').setup({})
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
