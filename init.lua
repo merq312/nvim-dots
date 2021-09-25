@@ -89,17 +89,24 @@ require('lspkind').init({})
 require('feline').setup({
   preset = 'noicon',
   colors = {
-    fg = '#EBDBB2',
-    bg = '#3B3735',
-    black = '#1D2021',
-    white = '#EBDBB2',
-    cyan = '#8EC07C',
-    skyblue = '#83A598',
-    oceanblue = '#458588',
-    red = '#FB4934',
-    orange = '#FE8019',
-    yellow = '#FABD2F',
-    green = '#B8BB26',
+    -- VSCODE DARK
+    fg = 'D4D4D4',
+    bg = '1E1E1E',
+    oceanblue = '#264F78',
+    skyblue = '#264F78',
+    -- GRUVBOX
+    -- black = '#1D2021',
+    -- fg = '#EBDBB2',
+    -- bg = '#3B3735',
+    -- black = '#1D2021',
+    -- white = '#EBDBB2',
+    -- cyan = '#8EC07C',
+    -- skyblue = '#83A598',
+    -- oceanblue = '#458588',
+    -- red = '#FB4934',
+    -- orange = '#FE8019',
+    -- yellow = '#FABD2F',
+    -- green = '#B8BB26',
   }
 })
 
@@ -145,4 +152,5 @@ end
 remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
 
 vim.opt.background = 'dark'
-vim.cmd 'colorscheme gruvbox'
+vim.g.vscode_style = 'dark'
+vim.cmd 'colorscheme vscode'

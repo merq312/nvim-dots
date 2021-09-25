@@ -64,10 +64,17 @@ return require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'p00f/nvim-ts-rainbow'
   use 'onsails/lspkind-nvim'
+  use 'dstein64/nvim-scrollview'
+  use 'yamatsum/nvim-cursorline'
 
   -- COLORSCHEMES
+  use 'rktjmp/lush.nvim'
   use 'navarasu/onedark.nvim'
-  use 'tomasiser/vim-code-dark'
+  use 'Mofiqul/vscode.nvim'
+  use 'mcchrish/zenbones.nvim'
+  use 'savq/melange'
+  use 'ellisonleao/gruvbox.nvim'
+  use 'merq312/github-nvim-theme'
 
   use {
     'Pocco81/Catppuccino.nvim',
@@ -123,8 +130,5 @@ return require('packer').startup(function()
       }
     } end
   }
-
-  use {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
-  use 'merq312/github-nvim-theme'
 
 end)

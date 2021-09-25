@@ -45,10 +45,10 @@ vim.cmd 'inoremap <expr> <Tab>   pumvisible() ? "<C-n>" : "<Tab>"'
 vim.cmd 'inoremap <expr> <S-Tab> pumvisible() ? "<C-p>" : "<S-Tab>"'
 
 -- Telescope
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>rg', '<cmd>Telescope live_grep<cr>')
-map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
-map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+map('n', 'ff', '<cmd>Telescope find_files<cr>')
+map('n', 'fg', '<cmd>Telescope live_grep<cr>')
+map('n', 'fb', '<cmd>Telescope buffers<cr>')
+map('n', 'fh', '<cmd>Telescope help_tags<cr>')
 
 -- nvim_bufferline
 map('n', '<A-,>', '<cmd>BufferLineCyclePrev<CR>')
