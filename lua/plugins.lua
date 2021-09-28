@@ -9,7 +9,6 @@ return require('packer').startup(function()
 
   use {'ms-jpq/coq_nvim', branch = 'coq'}
   use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
-
   use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
   use {
@@ -37,8 +36,8 @@ return require('packer').startup(function()
   }
 
   use {
-    'glepnir/lspsaga.nvim',
-    config = function() require'lspsaga'.init_lsp_saga() end
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
   }
 
   use {
@@ -74,66 +73,11 @@ return require('packer').startup(function()
 
   -- COLORSCHEMES
   use 'rktjmp/lush.nvim'
-  use 'navarasu/onedark.nvim'
+  use 'folke/lsp-colors.nvim'
+
   use 'Mofiqul/vscode.nvim'
-  use 'mcchrish/zenbones.nvim'
-  use 'savq/melange'
   use 'ellisonleao/gruvbox.nvim'
   use 'merq312/github-nvim-theme'
-
-  use {
-    'Pocco81/Catppuccino.nvim',
-    config = function() require'catppuccino'.setup{
-      colorscheme = "dark_catppuccino",
-      transparency = false,
-      styles = {
-        comments = "NONE",
-        functions = "underline",
-        keywords = "italic",
-        strings = "NONE",
-        variables = "NONE",
-      },
-      integrations = {
-        treesitter = true,
-        native_lsp = {
-          enabled = true,
-          virtual_text = {
-            errors = "italic",
-            hints = "italic",
-            warnings = "italic",
-            information = "italic",
-          },
-          underlines = {
-            errors = "underline",
-            hints = "underline",
-            warnings = "underline",
-            information = "underline",
-          }
-        },
-        lsp_trouble = false,
-        lsp_saga = true,
-        gitgutter = false,
-        gitsigns = true,
-        telescope = true,
-        nvimtree = {
-          enabled = true,
-          show_root = true,
-        },
-        indent_blankline = {
-          enabled = false,
-          colored_indent_levels = false,
-        },
-        which_key = false,
-        dashboard = false,
-        neogit = false,
-        vim_sneak = false,
-        fern = false,
-        barbar = false,
-        bufferline = true,
-        markdown = false,
-        ts_rainbow = true,
-      }
-    } end
-  }
+  use 'Pocco81/Catppuccino.nvim'
 
 end)

@@ -1,9 +1,9 @@
 -- OPTIONS
 vim.opt.termguicolors = true
-vim.cmd 'set clipboard=unnamedplus'
-vim.cmd 'set mouse=a'
-vim.cmd 'set encoding=utf-8'
--- vim.cmd 'set shell=pwsh.exe'
+vim.opt.encoding = 'utf-8'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.mouse = 'a'
+vim.opt.mousemodel = 'popup'
 vim.cmd 'set shortmess+=c'
 
 vim.opt.tabstop = 2
@@ -28,13 +28,7 @@ vim.opt.linebreak = true
 vim.opt.hidden = true
 
 vim.opt.completeopt = 'menuone,noinsert,noselect'
-vim.opt.guifont = 'FiraMono NF'
-
-vim.g.nvim_tree_side = 'right'
-vim.g.nvim_tree_auto_close = 1
-vim.g.nvim_tree_follow = 1
-vim.g.nvim_tree_follow_update_path = 1
-vim.g.nvim_tree_highlight_opened_files = 1
+vim.opt.guifont = 'FiraCode NF:h9'
 
 vim.g.coq_settings = { auto_start = true, keymap = { recommended = false } }
 
@@ -60,9 +54,64 @@ end
 
 require('rust-tools').setup({})
 
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.configs'.setup{
   highlight = {
     enable = true,
+  },
+  autopairs = {
+    enable = true
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = 'gnn',
+      node_incremental = 'grn',
+      scope_incremental = 'grc',
+      node_decremental = 'grm',
+    },
+  },
+  indent = {
+    enable = true,
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        [']m'] = '@function.outer',
+        [']]'] = '@class.outer',
+      },
+      goto_next_end = {
+        [']M'] = '@function.outer',
+        [']['] = '@class.outer',
+      },
+      goto_previous_start = {
+        ['[m'] = '@function.outer',
+        ['[['] = '@class.outer',
+      },
+      goto_previous_end = {
+        ['[M'] = '@function.outer',
+        ['[]'] = '@class.outer',
+      },
+    },
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    colors = {}, -- table of hex strings
+    termcolors = {} -- table of colour name strings
   }
 }
 
@@ -72,22 +121,25 @@ require('telescope').setup{
   }
 }
 
-require("indent_blankline").setup {
-    char = "⋅",
-    buftype_exclude = {"terminal"},
+require("indent_blankline").setup{
+  char = "⋅",
+  buftype_exclude = {"terminal"},
 }
 
-require('kommentary.config').configure_language("default", {
-    prefer_single_line_comments = true,
+require('kommentary.config').configure_language("default",{
+  prefer_single_line_comments = true,
 })
 
-require'nvim-treesitter.configs'.setup {
-  rainbow = {
+require'nvim-tree'.setup{
+  auto_close = true,
+  lsp_diagnostics = true,
+  update_focused_file = {
     enable = true,
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    colors = {}, -- table of hex strings
-    termcolors = {} -- table of colour name strings
+    update_cwd = true,
+  },
+  view = {
+    side = 'right',
+    auto_resize = true,
   }
 }
 
@@ -96,9 +148,16 @@ require('lspkind').init({})
 require('feline').setup({
   preset = 'noicon',
   colors = {
+    -- VSCODE LIGHT
+    -- fg = '#343434',
+    -- bg = '#FFFFFF',
+    -- black = '#343434',
+    -- white = '#FFFFFF',
+    -- oceanblue = '#03589C',
+    -- skyblue = '#ADD6FF',
     -- VSCODE DARK
-    fg = 'D4D4D4',
-    bg = '1E1E1E',
+    fg = '#D4D4D4',
+    bg = '#1E1E1E',
     oceanblue = '#264F78',
     skyblue = '#264F78',
     -- GRUVBOX
@@ -156,7 +215,61 @@ MUtils.BS = function()
 end
 remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
 
-vim.opt.background = 'dark'
-vim.g.vscode_style = 'dark'
+local catppuccino = require'catppuccino'.setup(
+  {
+    colorscheme = "dark_catppuccino",
+    transparency = false,
+    styles = {
+      comments = "NONE",
+      functions = "underline",
+      keywords = "italic",
+      strings = "NONE",
+      variables = "NONE",
+    },
+    integrations = {
+      treesitter = true,
+      native_lsp = {
+        enabled = true,
+        virtual_text = {
+          errors = "italic",
+          hints = "italic",
+          warnings = "italic",
+          information = "italic",
+        },
+        underlines = {
+          errors = "underline",
+          hints = "underline",
+          warnings = "underline",
+          information = "underline",
+        }
+      },
+      lsp_trouble = false,
+      lsp_saga = false,
+      gitgutter = false,
+      gitsigns = true,
+      telescope = true,
+      nvimtree = {
+        enabled = true,
+        show_root = true,
+      },
+      indent_blankline = {
+        enabled = true,
+        colored_indent_levels = false,
+      },
+      which_key = false,
+      dashboard = false,
+      neogit = false,
+      vim_sneak = false,
+      fern = false,
+      barbar = false,
+      bufferline = true,
+      markdown = false,
+      ts_rainbow = true,
+    }
+  }
+)
 
+local theme = 'dark'
+vim.opt.background = theme
+vim.g.vscode_style = theme
 vim.cmd 'colorscheme vscode'
