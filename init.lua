@@ -148,19 +148,19 @@ require('lspkind').init({})
 require('feline').setup({
   preset = 'noicon',
   colors = {
-    -- VSCODE LIGHT
+-- VSCODE LIGHT
     -- fg = '#343434',
     -- bg = '#FFFFFF',
     -- black = '#343434',
     -- white = '#FFFFFF',
     -- oceanblue = '#03589C',
     -- skyblue = '#ADD6FF',
-    -- VSCODE DARK
+-- VSCODE DARK
     fg = '#D4D4D4',
     bg = '#1E1E1E',
     oceanblue = '#264F78',
     skyblue = '#264F78',
-    -- GRUVBOX
+-- GRUVBOX
     -- black = '#1D2021',
     -- fg = '#EBDBB2',
     -- bg = '#3B3735',
@@ -215,59 +215,57 @@ MUtils.BS = function()
 end
 remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
 
-local catppuccino = require'catppuccino'.setup(
-  {
-    colorscheme = "dark_catppuccino",
-    transparency = false,
-    styles = {
-      comments = "NONE",
-      functions = "underline",
-      keywords = "italic",
-      strings = "NONE",
-      variables = "NONE",
+local catppuccino = require'catppuccino'.setup({
+  colorscheme = "dark_catppuccino",
+  transparency = false,
+  styles = {
+    comments = "NONE",
+    functions = "underline",
+    keywords = "italic",
+    strings = "NONE",
+    variables = "NONE",
+  },
+  integrations = {
+    treesitter = true,
+    native_lsp = {
+      enabled = true,
+      virtual_text = {
+        errors = "italic",
+        hints = "italic",
+        warnings = "italic",
+        information = "italic",
+      },
+      underlines = {
+        errors = "underline",
+        hints = "underline",
+        warnings = "underline",
+        information = "underline",
+      }
     },
-    integrations = {
-      treesitter = true,
-      native_lsp = {
-        enabled = true,
-        virtual_text = {
-          errors = "italic",
-          hints = "italic",
-          warnings = "italic",
-          information = "italic",
-        },
-        underlines = {
-          errors = "underline",
-          hints = "underline",
-          warnings = "underline",
-          information = "underline",
-        }
-      },
-      lsp_trouble = false,
-      lsp_saga = false,
-      gitgutter = false,
-      gitsigns = true,
-      telescope = true,
-      nvimtree = {
-        enabled = true,
-        show_root = true,
-      },
-      indent_blankline = {
-        enabled = true,
-        colored_indent_levels = false,
-      },
-      which_key = false,
-      dashboard = false,
-      neogit = false,
-      vim_sneak = false,
-      fern = false,
-      barbar = false,
-      bufferline = true,
-      markdown = false,
-      ts_rainbow = true,
-    }
+    lsp_trouble = false,
+    lsp_saga = false,
+    gitgutter = false,
+    gitsigns = true,
+    telescope = true,
+    nvimtree = {
+      enabled = true,
+      show_root = true,
+    },
+    indent_blankline = {
+      enabled = true,
+      colored_indent_levels = false,
+    },
+    which_key = false,
+    dashboard = false,
+    neogit = false,
+    vim_sneak = false,
+    fern = false,
+    barbar = false,
+    bufferline = true,
+    markdown = false,
+    ts_rainbow = true,
   }
-)
+})
 
 local theme = 'dark'
 vim.opt.background = theme
