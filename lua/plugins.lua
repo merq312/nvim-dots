@@ -5,7 +5,11 @@ return require('packer').startup(function()
 
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-  use {'famiu/feline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {
+    'famiu/feline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    tag = 'v0.2.1'
+  }
 
   use {'ms-jpq/coq_nvim', branch = 'coq'}
   use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
