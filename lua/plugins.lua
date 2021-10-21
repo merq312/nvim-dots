@@ -81,7 +81,6 @@ return require('packer').startup(function()
 
   use 'Mofiqul/vscode.nvim'
   use 'ellisonleao/gruvbox.nvim'
-  use 'merq312/github-nvim-theme'
   use 'Pocco81/Catppuccino.nvim'
 
 end)
