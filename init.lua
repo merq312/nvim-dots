@@ -45,8 +45,13 @@ require'keybinds'
 -- PLUGINS
 require'plugins'
 local nvim_lsp = require'lspconfig'
-local servers = { 'tsserver', 'rust_analyzer', 'ccls' }
 local coq = require('coq')
+local servers = { 'tsserver', 'rust_analyzer', 'ccls' }
+
+if vim.loop.os_uname().sysname == 'Linux' then
+  table.insert(servers, 'intelephense')
+  table.insert(servers, 'tailwindcss')
+end
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {coq.lsp_ensure_capabilities()}
