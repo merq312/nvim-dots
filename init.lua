@@ -132,7 +132,6 @@ require('kommentary.config').configure_language("default",{
 
 require'nvim-tree'.setup{
   auto_close = true,
-  lsp_diagnostics = true,
   update_focused_file = {
     enable = true,
     update_cwd = true,
