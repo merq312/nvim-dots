@@ -40,6 +40,12 @@ map('n', '<Esc>', '<cmd>noh<CR>')
 -- exit terminal mode
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
 
+-- lightspeed
+vim.cmd "nmap f <Plug>Lightspeed_s"
+vim.cmd "nmap F <Plug>Lightspeed_S"
+vim.cmd "vmap f <Plug>Lightspeed_s"
+vim.cmd "vmap F <Plug>Lightspeed_S"
+
 -- nvim_bufferline
 map('n', '<A-,>', '<cmd>BufferLineCyclePrev<CR>')
 map('n', '<A-.>', '<cmd>BufferLineCycleNext<CR>')
@@ -50,14 +56,14 @@ map('n', '<A->>', '<cmd>BufferLineMoveNext<CR>')
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
 
 -- Telescope
-map('n', 'fn', '<cmd>Telescope keymaps<cr>')
-map('n', 'ff', '<cmd>Telescope find_files<cr>')
-map('n', 'fg', '<cmd>Telescope live_grep<cr>')
-map('n', 'fb', '<cmd>Telescope buffers<cr>')
-map('n', 'fo', '<cmd>Telescope oldfiles<cr>')
+-- map('n', 'fn', '<cmd>Telescope keymaps<cr>')
+map('n', '<leader>f', '<cmd>Telescope find_files<cr>')
+map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
+map('n', '<leader>o', '<cmd>Telescope oldfiles<cr>')
 
 -- map('n', 'ft', '<cmd>Telescope tags<cr>') -- ctags
-map('n', 'ft', '<cmd>Telescope treesitter<cr>')
+map('n', '<leader>t', '<cmd>Telescope treesitter<cr>')
 
 -- show git diffs
 map('n', 'gs', '<cmd>Telescope git_status<cr>')

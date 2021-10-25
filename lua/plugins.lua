@@ -62,6 +62,8 @@ return require('packer').startup(function()
     } end
   }
 
+  use 'ggandor/lightspeed.nvim'
+
   use {
     'simrat39/rust-tools.nvim',
 	  requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
