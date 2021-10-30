@@ -18,6 +18,7 @@ vim.opt.foldlevel = 2
 vim.opt.foldnestmax = 3
 vim.opt.foldminlines = 1
 vim.opt.fillchars='fold: '
+vim.opt.fillchars = 'eob: '
 
 vim.opt.number = true
 vim.opt.showcmd = true
@@ -152,18 +153,17 @@ require('lspkind').init({})
 require('feline').setup({
   preset = 'noicon',
   colors = {
--- VSCODE LIGHT
-    -- fg = '#343434',
-    -- bg = '#FFFFFF',
-    -- black = '#343434',
-    -- white = '#FFFFFF',
-    -- oceanblue = '#03589C',
-    -- skyblue = '#ADD6FF',
+-- MATERIAL DARKER
+    fg = '#B0BEC5',
+    bg = '#212121',
+    black = '#212121',
+    oceanblue = '#82AAFF',
+    skyblue = '#89DDFF',
 -- VSCODE DARK
-    fg = '#D4D4D4',
-    bg = '#1E1E1E',
-    oceanblue = '#264F78',
-    skyblue = '#264F78',
+    -- fg = '#D4D4D4',
+    -- bg = '#1E1E1E',
+    -- oceanblue = '#264F78',
+    -- skyblue = '#264F78',
 -- GRUVBOX
     -- black = '#1D2021',
     -- fg = '#EBDBB2',
@@ -271,7 +271,9 @@ local catppuccino = require'catppuccino'.setup({
   }
 })
 
-local theme = 'dark'
-vim.opt.background = theme
-vim.g.vscode_style = theme
-vim.cmd 'colorscheme vscode'
+-- local theme = 'dark'
+-- vim.opt.background = theme
+-- vim.g.vscode_style = theme
+
+vim.g.material_style = "darker"
+vim.cmd 'colorscheme material'

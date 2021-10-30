@@ -7,8 +7,7 @@ return require('packer').startup(function()
 
   use {
     'famiu/feline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    tag = 'v0.2.1'
+    requires = 'kyazdani42/nvim-web-devicons'
   }
 
   use {'ms-jpq/coq_nvim', branch = 'coq'}
@@ -63,6 +62,9 @@ return require('packer').startup(function()
   }
 
   use 'ggandor/lightspeed.nvim'
+  use 'tpope/vim-surround'
+  use 'mattn/emmet-vim'
+  use 'sindrets/diffview.nvim'
 
   use {
     'simrat39/rust-tools.nvim',
@@ -84,5 +86,6 @@ return require('packer').startup(function()
   use 'Mofiqul/vscode.nvim'
   use 'ellisonleao/gruvbox.nvim'
   use 'Pocco81/Catppuccino.nvim'
+  use 'marko-cerovac/material.nvim'
 
 end)
