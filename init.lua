@@ -43,6 +43,9 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 -- KEYBINDS
 require'keybinds'
 
+-- STATUSLINE
+require'eviline'
+
 -- PLUGINS
 require'plugins'
 local nvim_lsp = require'lspconfig'
@@ -149,36 +152,6 @@ require'nvim-tree'.setup{
 }
 
 require('lspkind').init({})
-
-require('feline').setup({
-  preset = 'noicon',
-  colors = {
--- MATERIAL DARKER
-    fg = '#B0BEC5',
-    bg = '#212121',
-    black = '#212121',
-    oceanblue = '#82AAFF',
-    skyblue = '#89DDFF',
--- VSCODE DARK
-    -- fg = '#D4D4D4',
-    -- bg = '#1E1E1E',
-    -- oceanblue = '#264F78',
-    -- skyblue = '#264F78',
--- GRUVBOX
-    -- black = '#1D2021',
-    -- fg = '#EBDBB2',
-    -- bg = '#3B3735',
-    -- black = '#1D2021',
-    -- white = '#EBDBB2',
-    -- cyan = '#8EC07C',
-    -- skyblue = '#83A598',
-    -- oceanblue = '#458588',
-    -- red = '#FB4934',
-    -- orange = '#FE8019',
-    -- yellow = '#FABD2F',
-    -- green = '#B8BB26',
-  }
-})
 
 require('nvim-autopairs').setup({})
 

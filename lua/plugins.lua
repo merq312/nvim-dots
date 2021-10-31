@@ -6,8 +6,8 @@ return require('packer').startup(function()
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   use {
-    'famiu/feline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   use {'ms-jpq/coq_nvim', branch = 'coq'}
@@ -57,7 +57,7 @@ return require('packer').startup(function()
       persist_size = true,
       direction = 'horizontal',
       close_on_exit = true,
-      shell = 'pwsh.exe',
+      shell = 'wsl.exe',
     } end
   }
 
