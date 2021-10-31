@@ -5,19 +5,13 @@ return require('packer').startup(function()
 
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+  use {'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   use {'ms-jpq/coq_nvim', branch = 'coq'}
   use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
   use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
-  use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
-  }
+  use {'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim'}
 
 	use {
 	  'nvim-telescope/telescope.nvim',
@@ -29,37 +23,14 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
-  use {
-    'neovim/nvim-lspconfig',
-    config = function() require'bufferline'.setup{
-      -- options = {
-      --   separator_style = "slant",
-      -- }
-    } end
-  }
+  use 'neovim/nvim-lspconfig'
 
   use {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',
   }
 
-  use {
-    'akinsho/toggleterm.nvim',
-    config = function() require'toggleterm'.setup{
-      size = 20,
-      open_mapping = [[<c-p>]],
-      hide_numbers = true,
-      shade_filetypes = {},
-      shade_terminals = true,
-      shading_factor = 1,
-      start_in_insert = true,
-      insert_mappings = true,
-      persist_size = true,
-      direction = 'horizontal',
-      close_on_exit = true,
-      shell = 'wsl.exe',
-    } end
-  }
+  use 'akinsho/toggleterm.nvim'
 
   use 'ggandor/lightspeed.nvim'
   use 'tpope/vim-surround'
