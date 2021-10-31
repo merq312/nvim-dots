@@ -43,17 +43,17 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 -- KEYBINDS
 require'keybinds'
 
--- STATUSLINE
-require'eviline'
-
 -- PLUGINS
 require'plugins'
 require'configuration'
+
+-- STATUSLINE
+require'eviline'
 
 -- THEMING
 local theme = 'dark'
 vim.opt.background = theme
 vim.g.vscode_style = theme
 
-vim.g.material_style = "darker"
+vim.g.material_style = 'darker'
 vim.cmd 'colorscheme material'
