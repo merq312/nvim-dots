@@ -38,6 +38,11 @@ return require('packer').startup(function()
   use 'sindrets/diffview.nvim'
 
   use {
+    'jose-elias-alvarez/nvim-lsp-ts-utils',
+    requires = {{'neovim/nvim-lspconfig'}, {'nvim-lua/plenary.nvim'}, {'jose-elias-alvarez/null-ls.nvim'}}
+  }
+
+  use {
     'simrat39/rust-tools.nvim',
 	  requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }

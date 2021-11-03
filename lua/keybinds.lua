@@ -21,6 +21,8 @@ map('i', '<S-down>', 'j')
 -- Scroll paragraph
 map('n', 'J', '}')
 map('n', 'K', '{')
+map('v', 'J', '}')
+map('v', 'K', '{')
 
 -- Scroll page
 map('n', '<C-k>', '<C-y>')
