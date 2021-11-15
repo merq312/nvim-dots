@@ -61,7 +61,6 @@ return require('packer').startup(function()
 
   use 'Mofiqul/vscode.nvim'
   use 'ellisonleao/gruvbox.nvim'
-  use 'Pocco81/Catppuccino.nvim'
   use 'marko-cerovac/material.nvim'
 
 end)
