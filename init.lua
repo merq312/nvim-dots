@@ -36,6 +36,9 @@ vim.g.coq_settings = { auto_start = true, keymap = { recommended = false } }
 -- Autoformat on save
 vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 
+-- Spell-check markdown files
+vim.api.nvim_command[[autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us]]
+
 vim.cmd [[packadd packer.nvim]]
 -- Auto compile when there are changes in plugins.lua
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
