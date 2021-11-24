@@ -7,8 +7,8 @@ end
 -- Save buffer
 map('n', '<Space><Space>', '<cmd>w<CR>')
 
--- Close buffer (includes fix for nvim-scrollview)
-map('n', '<C-d>', '<C-w>o<CR><cmd>bd<CR>')
+-- Close buffer
+map('n', '<C-d>', '<cmd>bd<CR>')
 
 -- Disable some defaults
 map('n', '<S-up>', 'k')
@@ -43,10 +43,10 @@ map('n', '<Esc>', '<cmd>noh<CR>')
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
 
 -- lightspeed
-vim.cmd "nmap f <Plug>Lightspeed_s"
-vim.cmd "nmap F <Plug>Lightspeed_S"
-vim.cmd "vmap f <Plug>Lightspeed_s"
-vim.cmd "vmap F <Plug>Lightspeed_S"
+-- vim.cmd "nmap f <Plug>Lightspeed_s"
+-- vim.cmd "nmap F <Plug>Lightspeed_S"
+-- vim.cmd "vmap f <Plug>Lightspeed_s"
+-- vim.cmd "vmap F <Plug>Lightspeed_S"
 
 -- nvim_bufferline
 map('n', '<A-,>', '<cmd>BufferLineCyclePrev<CR>')

@@ -52,7 +52,6 @@ return require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'p00f/nvim-ts-rainbow'
   use 'onsails/lspkind-nvim'
-  use 'dstein64/nvim-scrollview'
   use 'yamatsum/nvim-cursorline'
 
   -- COLORSCHEMES

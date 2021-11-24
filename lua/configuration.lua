@@ -148,9 +148,12 @@ require('bufferline').setup()
 
 require('gitsigns').setup()
 
+vim.opt.list = true
+vim.opt.listchars:append("eol:↴")
 require("indent_blankline").setup{
-  char = "⋅",
+  -- char = "⋅",
   buftype_exclude = {"terminal"},
+  show_end_of_line = true,
 }
 
 require('kommentary.config').configure_language("default", {

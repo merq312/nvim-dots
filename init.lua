@@ -21,6 +21,7 @@ vim.opt.fillchars = 'fold: '
 vim.opt.fillchars = 'eob: '
 
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.showcmd = true
 vim.opt.cursorline = false
 vim.opt.wildmenu = true
@@ -29,7 +30,7 @@ vim.opt.linebreak = true
 vim.opt.hidden = true
 
 vim.opt.completeopt = 'menuone,noinsert,noselect'
-vim.opt.guifont = 'FiraCode NF:h9'
+vim.opt.guifont = 'JetBrainsMono NF:h9'
 
 vim.g.coq_settings = { auto_start = true, keymap = { recommended = false } }
 
