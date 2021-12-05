@@ -43,10 +43,10 @@ map('n', '<Esc>', '<cmd>noh<CR>')
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
 
 -- lightspeed
--- vim.cmd "nmap f <Plug>Lightspeed_s"
--- vim.cmd "nmap F <Plug>Lightspeed_S"
--- vim.cmd "vmap f <Plug>Lightspeed_s"
--- vim.cmd "vmap F <Plug>Lightspeed_S"
+vim.cmd "nmap ,s <Plug>Lightspeed_S"
+vim.cmd "nmap .s <Plug>Lightspeed_s"
+vim.cmd "vmap ,s <Plug>Lightspeed_S"
+vim.cmd "vmap .s <Plug>Lightspeed_s"
 
 -- nvim_bufferline
 map('n', '<A-,>', '<cmd>BufferLineCyclePrev<CR>')
