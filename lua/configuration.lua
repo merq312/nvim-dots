@@ -1,11 +1,14 @@
 local nvim_lsp = require("lspconfig")
 local coq = require("coq")
 local servers = { "rust_analyzer", "ccls", "tsserver" }
+local shell = "pwsh.exe -NoLogo"
 
--- Enable additional lspsevers on Linux
 if vim.loop.os_uname().sysname == "Linux" then
+  -- Enable additional lspsevers on Linux
 	table.insert(servers, "intelephense")
 	table.insert(servers, "tailwindcss")
+  -- Use the appropriate shell in toggleterm
+	shell = "fish"
 end
 
 for _, lsp in ipairs(servers) do
@@ -184,7 +187,7 @@ require("toggleterm").setup({
 	persist_size = true,
 	direction = "horizontal",
 	close_on_exit = true,
-	shell = "wsl.exe",
+	shell = shell,
 })
 
 require("lspkind").init({})
