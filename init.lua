@@ -35,7 +35,7 @@ vim.opt.guifont = "JetBrainsMono NF:h9"
 vim.g.coq_settings = { auto_start = true, keymap = { recommended = false } }
 
 -- Autoformat on save
-vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]])
 
 -- Spell-check markdown files
 vim.api.nvim_command([[autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us]])
