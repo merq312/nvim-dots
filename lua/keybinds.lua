@@ -86,8 +86,8 @@ map("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")
 map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
 -- jump diagnostics
-map("n", "[g", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-map("n", "]g", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
 -- list diagnostics
 map('n', '<leader>d', '<cmd>Trouble<CR>')
