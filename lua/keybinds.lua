@@ -79,9 +79,15 @@ map("n", "gi", "<cmd>Telescope lsp_implementations<cr>")
 -- hover
 map("n", "L", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
--- jump diagnostics
-map("n", "[g", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
-map("n", "]g", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
-
 -- code action
 map("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")
+
+-- rename symbol
+map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+
+-- jump diagnostics
+map("n", "[g", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "]g", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+
+-- list diagnostics
+map('n', '<leader>d', '<cmd>Trouble<CR>')

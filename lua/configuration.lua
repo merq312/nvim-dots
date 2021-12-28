@@ -189,6 +189,8 @@ require("toggleterm").setup({
 
 require("lspkind").init({})
 
+require("trouble").setup({})
+
 require("nvim-autopairs").setup({})
 
 local remap = vim.api.nvim_set_keymap
