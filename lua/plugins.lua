@@ -47,10 +47,10 @@ return require("packer").startup(function()
 		requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
 	})
 
-  use({
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons"
-  })
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 
 	use("windwp/nvim-autopairs")
 	use("lukas-reineke/indent-blankline.nvim")
