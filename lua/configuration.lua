@@ -4,10 +4,10 @@ local servers = { "rust_analyzer", "ccls", "tsserver" }
 local shell = "pwsh.exe -NoLogo"
 
 if vim.loop.os_uname().sysname == "Linux" then
-  -- Enable additional lspsevers on Linux
+	-- Enable additional lspsevers on Linux
 	table.insert(servers, "intelephense")
 	table.insert(servers, "tailwindcss")
-  -- Use the appropriate shell in toggleterm
+	-- Use the appropriate shell in toggleterm
 	shell = "fish"
 end
 
@@ -24,9 +24,7 @@ require("null-ls").setup({
 		require("null-ls").builtins.code_actions.eslint.with({
 			only_local = "node_modules/.bin",
 		}),
-		require("null-ls").builtins.formatting.prettier.with({
-			prefer_local = "node_modules/.bin",
-		}),
+		require("null-ls").builtins.formatting.deno_fmt,
 	},
 })
 
