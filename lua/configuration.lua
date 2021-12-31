@@ -147,6 +147,8 @@ require("telescope").setup({
 
 require("bufferline").setup()
 
+require("lualine").setup()
+
 require("gitsigns").setup()
 
 require("indent_blankline").setup({
