@@ -54,4 +54,5 @@ vim.opt.background = theme
 vim.g.vscode_style = theme
 
 vim.g.material_style = "darker"
-vim.cmd("colorscheme darcula-solid")
+vim.g.gruvbox_contrast_dark = "hard"
+vim.cmd("colorscheme gruvbox")

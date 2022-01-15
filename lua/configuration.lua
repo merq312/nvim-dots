@@ -6,7 +6,7 @@ local shell = "pwsh.exe -NoLogo"
 if vim.loop.os_uname().sysname == "Linux" then
 	-- Enable additional lspsevers on Linux
 	table.insert(servers, "intelephense")
-	table.insert(servers, "tailwindcss")
+	-- table.insert(servers, "tailwindcss")
 	-- Use the appropriate shell in toggleterm
 	shell = "fish"
 end
