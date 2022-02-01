@@ -229,15 +229,3 @@ MUtils.BS = function()
 	end
 end
 remap("i", "<bs>", "v:lua.MUtils.BS()", { expr = true, noremap = true })
-
-require("themer").setup({
-	colorscheme = "kanagawa",
-	styles = {
-		comment = { style = "italic" },
-		["function"] = { style = "italic" },
-		functionbuiltin = { style = "italic" },
-		variable = { style = "italic" },
-		variableBuiltIn = { style = "italic" },
-		parameter = { style = "italic" },
-	},
-})
