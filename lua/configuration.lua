@@ -24,7 +24,7 @@ require("null-ls").setup({
 		require("null-ls").builtins.code_actions.eslint.with({
 			only_local = "node_modules/.bin",
 		}),
-		require("null-ls").builtins.formatting.deno_fmt,
+		require("null-ls").builtins.formatting.prettierd,
 	},
 })
 
@@ -147,7 +147,9 @@ require("telescope").setup({
 
 require("bufferline").setup()
 
-require("lualine").setup()
+require("lualine").setup({
+	options = { section_separators = "", component_separators = "" },
+})
 
 require("gitsigns").setup()
 
