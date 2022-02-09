@@ -1,6 +1,6 @@
 local nvim_lsp = require("lspconfig")
 local coq = require("coq")
-local servers = { "rust_analyzer", "ccls", "tsserver" }
+local servers = { "rust_analyzer", "ccls", "tsserver", "volar" }
 local shell = "pwsh.exe -NoLogo"
 
 if vim.loop.os_uname().sysname == "Linux" then
