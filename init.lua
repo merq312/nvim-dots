@@ -55,4 +55,7 @@ vim.g.vscode_style = theme
 
 vim.g.material_style = "darker"
 vim.g.gruvbox_contrast_dark = "hard"
-vim.cmd("colorscheme themer_kanagawa")
+vim.cmd("colorscheme kanagawa")
+
+-- Disable cursorline from nvim-cursorline
+vim.g.cursorline_timeout = -1

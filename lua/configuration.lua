@@ -6,6 +6,7 @@ local shell = "pwsh.exe -NoLogo"
 if vim.loop.os_uname().sysname == "Linux" then
 	-- Enable additional lspsevers on Linux
 	table.insert(servers, "intelephense")
+	table.insert(servers, "pyright")
 	-- table.insert(servers, "tailwindcss")
 	-- Use the appropriate shell in toggleterm
 	shell = "fish"
@@ -231,3 +232,19 @@ MUtils.BS = function()
 	end
 end
 remap("i", "<bs>", "v:lua.MUtils.BS()", { expr = true, noremap = true })
+
+require("kanagawa").setup({
+	undercurl = true, -- enable undercurls
+	commentStyle = "NONE",
+	functionStyle = "NONE",
+	keywordStyle = "bold",
+	statementStyle = "bold",
+	typeStyle = "NONE",
+	variablebuiltinStyle = "italic",
+	specialReturn = true, -- special highlight for the return keyword
+	specialException = true, -- special highlight for exception handling keywords
+	transparent = false, -- do not set background color
+	dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+	colors = {},
+	overrides = {},
+})
