@@ -67,7 +67,7 @@ map("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>o", "<cmd>Telescope oldfiles<cr>")
 
 -- map('n', 'ft', '<cmd>Telescope tags<cr>') -- ctags
-map("n", "<leader>t", "<cmd>Telescope treesitter<cr>")
+-- map("n", "<leader>t", "<cmd>Telescope treesitter<cr>")
 
 -- show git diffs
 map("n", "gs", "<cmd>Telescope git_status<cr>")
@@ -83,11 +83,14 @@ map("n", "L", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")
 
 -- rename symbol
-map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 
 -- jump diagnostics
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
 -- list diagnostics
-map('n', '<leader>d', '<cmd>Trouble<CR>')
+map("n", "<leader>d", "<cmd>Trouble<CR>")
+
+-- list TODO, FIXME, HACK, WARN, PERF, NOTE
+map("n", "<leader>t", "<cmd>TodoTelescope<cr>")

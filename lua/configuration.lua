@@ -248,3 +248,5 @@ require("kanagawa").setup({
 	colors = {},
 	overrides = {},
 })
+
+require("todo-comments").setup({})

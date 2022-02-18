@@ -58,6 +58,8 @@ return require("packer").startup(function()
 	use("p00f/nvim-ts-rainbow")
 	use("onsails/lspkind-nvim")
 	use("yamatsum/nvim-cursorline")
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+	use("vimwiki/vimwiki")
 
 	-- COLORSCHEMES
 	use("rktjmp/lush.nvim")
