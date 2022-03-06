@@ -1,12 +1,11 @@
 local nvim_lsp = require("lspconfig")
 local coq = require("coq")
-local servers = { "rust_analyzer", "ccls", "tsserver", "volar" }
+local servers = { "rust_analyzer", "ccls", "tsserver", "volar", "pyright" }
 local shell = "pwsh.exe -NoLogo"
 
 if vim.loop.os_uname().sysname == "Linux" then
 	-- Enable additional lspsevers on Linux
 	table.insert(servers, "intelephense")
-	table.insert(servers, "pyright")
 	-- table.insert(servers, "tailwindcss")
 	-- Use the appropriate shell in toggleterm
 	shell = "fish"
@@ -26,6 +25,7 @@ require("null-ls").setup({
 			only_local = "node_modules/.bin",
 		}),
 		require("null-ls").builtins.formatting.prettierd,
+		require("null-ls").builtins.formatting.black,
 	},
 })
 
