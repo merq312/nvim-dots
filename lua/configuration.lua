@@ -251,3 +251,10 @@ require("kanagawa").setup({
 })
 
 require("todo-comments").setup({})
+
+-- Disable cursorline from nvim-cursorline
+vim.g.cursorline_timeout = -1
+
+vim.cmd("let g:vimwiki_list = [{'path': '$HOME/Dropbox/wiki'}]")
+vim.cmd("let g:vimwiki_ext = '.md'")
+vim.cmd("let g:vimwiki_global_ext = 0")

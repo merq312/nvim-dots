@@ -55,10 +55,3 @@ vim.g.material_style = "darker"
 vim.g.gruvbox_contrast_dark = "hard"
 
 vim.cmd("colorscheme vscode")
-
--- Disable cursorline from nvim-cursorline
-vim.g.cursorline_timeout = -1
-
-vim.cmd("let g:vimwiki_list = [{'path': '$HOME/Dropbox/wiki'}]")
-vim.cmd("let g:vimwiki_ext = '.md'")
-vim.cmd("let g:vimwiki_global_ext = 0")
