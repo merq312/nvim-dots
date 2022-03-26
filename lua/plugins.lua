@@ -31,7 +31,6 @@ return require("packer").startup(function()
 	})
 
 	use("akinsho/toggleterm.nvim")
-
 	use("ggandor/lightspeed.nvim")
 	use("tpope/vim-surround")
 	use("mattn/emmet-vim")
@@ -60,6 +59,7 @@ return require("packer").startup(function()
 	use("yamatsum/nvim-cursorline")
 	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("vimwiki/vimwiki")
+	use("github/copilot.vim")
 
 	-- COLORSCHEMES
 	use("rktjmp/lush.nvim")
