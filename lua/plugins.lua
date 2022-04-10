@@ -60,6 +60,7 @@ return require("packer").startup(function()
 	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("vimwiki/vimwiki")
 	use("github/copilot.vim")
+	use("max397574/better-escape.nvim")
 
 	-- COLORSCHEMES
 	use("rktjmp/lush.nvim")
