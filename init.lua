@@ -5,6 +5,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "popup"
 vim.cmd("set shortmess+=c")
+vim.opt.guifont = "FiraCode NF:h11"
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
