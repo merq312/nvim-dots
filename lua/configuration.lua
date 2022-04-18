@@ -1,12 +1,10 @@
 local nvim_lsp = require("lspconfig")
 local coq = require("coq")
-local servers = { "rust_analyzer", "ccls", "tsserver", "volar", "pyright" }
+local servers = { "rust_analyzer", "ccls", "tsserver", "vuels", "pyright" }
 local shell = "pwsh.exe -NoLogo"
 
 if vim.loop.os_uname().sysname == "Linux" then
 	-- Enable additional lspsevers on Linux
-	table.insert(servers, "intelephense")
-	-- table.insert(servers, "tailwindcss")
 	-- Use the appropriate shell in toggleterm
 	shell = "fish"
 end
@@ -259,7 +257,7 @@ require("better_escape").setup({
 })
 
 -- Disable cursorline from nvim-cursorline
-vim.g.cursorline_timeout = -1
+-- vim.g.cursorline_timeout = -1
 
 vim.cmd("let g:vimwiki_list = [{'path': '$HOME/Dropbox/wiki'}]")
 vim.cmd("let g:vimwiki_ext = '.md'")
