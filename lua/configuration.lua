@@ -144,7 +144,13 @@ require("telescope").setup({
 	},
 })
 
-require("bufferline").setup()
+require("bufferline").setup({
+	highlights = {
+		buffer_selected = {
+			gui = "bold",
+		},
+	},
+})
 
 require("lualine").setup({
 	options = { section_separators = "", component_separators = "" },

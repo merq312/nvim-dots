@@ -36,7 +36,7 @@ vim.g.coq_settings = { auto_start = "shut-up", keymap = { recommended = false } 
 vim.api.nvim_command([[autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()]])
 
 -- Spell-check markdown files
-vim.api.nvim_command([[autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us]])
+-- vim.api.nvim_command([[autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us]])
 
 vim.cmd([[packadd packer.nvim]])
 -- Auto compile when there are changes in plugins.lua
@@ -54,5 +54,7 @@ vim.opt.background = "dark"
 vim.g.vscode_style = "dark"
 vim.g.material_style = "darker"
 vim.g.gruvbox_contrast_dark = "hard"
+vim.g.sonokai_style = "shusia"
+vim.g.sonokai_disable_italic_comment = 1
 
-vim.cmd("colorscheme vscode")
+vim.cmd("colorscheme gruvbox")
