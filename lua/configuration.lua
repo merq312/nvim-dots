@@ -175,7 +175,6 @@ require("nvim-tree").setup({
 	view = {
 		width = 40,
 		side = "right",
-		auto_resize = true,
 	},
 })
 
@@ -237,19 +236,17 @@ MUtils.BS = function()
 end
 remap("i", "<bs>", "v:lua.MUtils.BS()", { expr = true, noremap = true })
 
-require("kanagawa").setup({
-	undercurl = true, -- enable undercurls
-	commentStyle = "NONE",
-	functionStyle = "NONE",
-	keywordStyle = "bold",
-	statementStyle = "bold",
-	typeStyle = "NONE",
-	variablebuiltinStyle = "italic",
-	specialReturn = true, -- special highlight for the return keyword
-	specialException = true, -- special highlight for exception handling keywords
-	transparent = false, -- do not set background color
-	dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-	colors = {},
+require("gruvbox").setup({
+	undercurl = true,
+	underline = true,
+	bold = true,
+	italic = false, -- will make italic comments and special strings
+	inverse = true, -- invert background for search, diffs, statuslines and errors
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	invert_intend_guides = false,
+	contrast = "hard", -- can be "hard" or "soft"
 	overrides = {},
 })
 

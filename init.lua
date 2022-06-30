@@ -53,7 +53,6 @@ require("configuration")
 vim.opt.background = "dark"
 vim.g.vscode_style = "dark"
 vim.g.material_style = "darker"
-vim.g.gruvbox_contrast_dark = "hard"
 vim.g.sonokai_style = "shusia"
 vim.g.sonokai_disable_italic_comment = 1
 
