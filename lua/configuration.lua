@@ -1,13 +1,11 @@
 local nvim_lsp = require("lspconfig")
 local coq = require("coq")
-local servers = { "rust_analyzer", "ccls", "tsserver", "vuels", "pyright" }
-local shell = "pwsh.exe -NoLogo"
+local servers = { "rust_analyzer", "ccls", "tsserver", "volar", "pyright" }
+-- local shell = "pwsh.exe -NoLogo"
+local shell = "zsh"
 
-if vim.loop.os_uname().sysname == "Linux" then
-	-- Enable additional lspsevers on Linux
-	-- Use the appropriate shell in toggleterm
-	shell = "fish"
-end
+-- if vim.loop.os_uname().sysname == "Linux" then
+-- end
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({ coq.lsp_ensure_capabilities() })
@@ -147,7 +145,7 @@ require("telescope").setup({
 require("bufferline").setup({
 	highlights = {
 		buffer_selected = {
-			gui = "bold",
+			bold = true,
 		},
 	},
 })
@@ -262,6 +260,10 @@ require("better_escape").setup({
 -- Disable cursorline from nvim-cursorline
 -- vim.g.cursorline_timeout = -1
 
-vim.cmd("let g:vimwiki_list = [{'path': '$HOME/Dropbox/wiki'}]")
+-- Windows / Linux
+-- vim.cmd("let g:vimwiki_list = [{'path': '$HOME/Dropbox/wiki'}]")
+-- MacOS
+vim.cmd("let g:vimwiki_list = [{'path': '$HOME/Library/CloudStorage/Dropbox/wiki'}]")
+
 vim.cmd("let g:vimwiki_ext = '.md'")
 vim.cmd("let g:vimwiki_global_ext = 0")
