@@ -56,4 +56,4 @@ vim.g.material_style = "darker"
 vim.g.sonokai_style = "shusia"
 vim.g.sonokai_disable_italic_comment = 1
 
-vim.cmd("colorscheme material")
+vim.cmd("colorscheme sonokai")

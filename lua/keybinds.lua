@@ -51,10 +51,10 @@ vim.cmd("vmap ,s <Plug>Lightspeed_S")
 vim.cmd("vmap .s <Plug>Lightspeed_s")
 
 -- nvim_bufferline
-map("n", "<A-,>", "<cmd>BufferLineCyclePrev<CR>")
-map("n", "<A-.>", "<cmd>BufferLineCycleNext<CR>")
-map("n", "<A-<>", "<cmd>BufferLineMovePrev<CR>")
-map("n", "<A->>", "<cmd>BufferLineMoveNext<CR>")
+map("n", "<C-,>", "<cmd>BufferLineCyclePrev<CR>")
+map("n", "<C-.>", "<cmd>BufferLineCycleNext<CR>")
+map("n", "<C-<>", "<cmd>BufferLineMovePrev<CR>")
+map("n", "<C->>", "<cmd>BufferLineMoveNext<CR>")
 
 -- Nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
@@ -77,13 +77,16 @@ map("n", "gd", "<cmd>Telescope lsp_definitions<cr>")
 map("n", "gi", "<cmd>Telescope lsp_implementations<cr>")
 
 -- hover
-map("n", "L", "<cmd>lua vim.lsp.buf.hover()<CR>")
+-- map("n", "L", "<cmd>lua vim.lsp.buf.hover()<CR>")
+map("n", "L", "<cmd>Lspsaga hover_doc<CR>")
 
 -- code action
-map("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")
+-- map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 
 -- rename symbol
-map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+-- map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
 
 -- jump diagnostics
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")

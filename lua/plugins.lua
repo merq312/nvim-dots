@@ -25,9 +25,10 @@ return require("packer").startup(function()
 
 	use("neovim/nvim-lspconfig")
 
+
 	use({
-		"weilbith/nvim-code-action-menu",
-		cmd = "CodeActionMenu",
+		"glepnir/lspsaga.nvim",
+		branch = "main",
 	})
 
 	use("akinsho/toggleterm.nvim")
@@ -36,10 +37,8 @@ return require("packer").startup(function()
 	use("mattn/emmet-vim")
 	use("sindrets/diffview.nvim")
 
-	use({
-		"jose-elias-alvarez/nvim-lsp-ts-utils",
-		requires = { { "neovim/nvim-lspconfig" }, { "nvim-lua/plenary.nvim" }, { "jose-elias-alvarez/null-ls.nvim" } },
-	})
+  use("jose-elias-alvarez/null-ls.nvim")
+	use("jose-elias-alvarez/typescript.nvim")
 
 	use({
 		"simrat39/rust-tools.nvim",
